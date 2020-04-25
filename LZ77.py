@@ -30,7 +30,8 @@ def encode(sliding_window_size, look_ahead_size,data):
     # sliding_window_limits = [0, sliding_window_size - 1]
     # sliding_window_size = 13
     # look_ahead_size = 6
-    output = np.array(data[0:look_ahead_size-1])
+
+    output = np.array(data[0:sliding_window_size-look_ahead_size])
     while sliding_window_size <= len(data):
         sliding_window_data = data[:sliding_window_size]
         token = getToken(sliding_window_data, look_ahead_size)
